@@ -1,3 +1,12 @@
+'''
+A Python console-based Student Grade Tracker that lets you add students,
+assign multiple grades per subject, update grades, calculate averages, and find the top student.
+It uses nested dictionaries and lists to store structured data,
+with options to extend it using JSON for saving and loading between program runs.
+
+'''
+
+
 import json
 
 students = {}
