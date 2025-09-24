@@ -128,10 +128,30 @@ def find_top_student():
         print("No students with grades yet.")
 
 def all_students():
+    if not students:
+        print("No students in our database yet!")
+        return
     for i, (student, subjects) in enumerate(students.items(), start=1):
         print(f"{i}. {student}")  # name
         for subject, grades in subjects.items():
             print(f"   {subject}: {', '.join(str(grade) for grade in grades)}")
+
+
+
+
+def save_data(filename="students.json"):
+    with open(filename, "w") as file:
+        json.dump(students, file, indent=4)
+    print("Data saved successfully!")
+
+def load_data(filename="students.json"):
+    global students
+    try:
+        with open(filename, "r") as file:
+            students = json.load(file)
+        print("Data loaded successfully!")
+    except FileNotFoundError:
+        print("No saved data found.")
 
 
 def main():
@@ -163,6 +183,10 @@ Choose an option:
             find_top_student()
         elif choice == "6":
             all_students()
+        elif choice == "7":
+            save_data()
+        elif choice == "8":
+            load_data()
         elif choice == "9":
             print("Goodbye!")
             break
