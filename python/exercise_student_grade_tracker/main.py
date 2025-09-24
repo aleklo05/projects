@@ -96,7 +96,29 @@ def calculate_average():
     
     print(f"{name}'s average grade is {average:.2f}")
 
-    
+
+
+def find_top_student():
+    highest_average = 0
+    top_student = None
+
+    for name, subjects in students.items():
+        all_grades = []
+        for subject, grades in subjects.items():
+            all_grades.extend(grades)
+
+        if all_grades:  # <- only if a student has any grades
+            tmp_average = sum(all_grades) / len(all_grades)
+            if tmp_average > highest_average:
+                highest_average = tmp_average
+                top_student = name
+
+    if top_student:
+        print(f"The top student is {top_student} with an average equal to {highest_average:.2f}")
+    else:
+        print("No students with grades yet.")
+
+
 def main():
     while True:
         print("""
@@ -121,6 +143,8 @@ Choose an option:
             update_grade()
         elif choice == "4":
             calculate_average()
+        elif choice == "5":
+            find_top_student()
         elif choice == "8":
             print("Goodbye!")
             break
