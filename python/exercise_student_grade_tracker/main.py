@@ -127,6 +127,12 @@ def find_top_student():
     else:
         print("No students with grades yet.")
 
+def all_students():
+    for i, (student, subjects) in enumerate(students.items(), start=1):
+        print(f"{i}. {student}")  # name
+        for subject, grades in subjects.items():
+            print(f"   {subject}: {', '.join(str(grade) for grade in grades)}")
+
 
 def main():
     while True:
@@ -137,9 +143,10 @@ Choose an option:
 3. Update Grade
 4. Calculate Student Average
 5. Find Top Student
-6. Save Data
-7. Load Data
-8. Exit
+6. See all students
+7. Save Data
+8. Load Data
+9. Exit
 """)
 
         choice = input("Enter your choice: ")
@@ -154,7 +161,9 @@ Choose an option:
             calculate_average()
         elif choice == "5":
             find_top_student()
-        elif choice == "8":
+        elif choice == "6":
+            all_students()
+        elif choice == "9":
             print("Goodbye!")
             break
         else:
