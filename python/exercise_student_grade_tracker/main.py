@@ -8,6 +8,7 @@ with options to extend it using JSON for saving and loading between program runs
 
 
 import json
+from enum import IntEnum
 
 students = {}
 
@@ -155,44 +156,47 @@ def load_data(filename="students.json"):
 
 
 def main():
+    Choice_List = IntEnum('Choice_List',
+                          'Add_student Add_grade Update_grade Calculate_student_average Find_top_student See_all_students Save_data Load_data Exit')
     while True:
-        print("""
+        try:
+            choice = int(input("""
 Choose an option:
-1. Add Student
+1. Add student
 2. Add grade
-3. Update Grade
-4. Calculate Student Average
-5. Find Top Student
+3. Update grade
+4. Calculate student average
+5. Find top student
 6. See all students
-7. Save Data
-8. Load Data
+7. Save data
+8. Load data
 9. Exit
-""")
+"""))
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+            continue
 
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
+        if choice == Choice_List.Add_student:
             add_student()
-        elif choice == "2":
+        elif choice == Choice_List.Add_grade:
             add_grade()
-        elif choice == "3":
+        elif choice == Choice_List.Update_grade:
             update_grade()
-        elif choice == "4":
+        elif choice == Choice_List.Calculate_student_average:
             calculate_average()
-        elif choice == "5":
+        elif choice == Choice_List.Find_top_student:
             find_top_student()
-        elif choice == "6":
+        elif choice == Choice_List.See_all_students:
             all_students()
-        elif choice == "7":
+        elif choice == Choice_List.Save_data:
             save_data()
-        elif choice == "8":
+        elif choice == Choice_List.Load_data:
             load_data()
-        elif choice == "9":
+        elif choice == Choice_List.Exit:
             print("Goodbye!")
             break
         else:
             print("Invalid option, try again.")
-        
         
 
 main()

@@ -1,22 +1,7 @@
 {
     "Alice": {
         "Math": [
-            86,
-            52
-        ],
-        "Chemistry": [
-            11
-        ]
-    },
-    "Bob": {
-        "Biology": [
-            13
-        ],
-        "Math": [
-            100
-        ],
-        "Chemistry": [
-            81
+            98
         ]
     }
 }
