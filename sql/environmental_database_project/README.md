@@ -50,7 +50,5 @@ Many-to-many relationships are handled using junction tables such as:
 - `Gatunki_Krainy`
 - `Pobyt_Osobnika`
 
----
 
-## Repository Structure
 
