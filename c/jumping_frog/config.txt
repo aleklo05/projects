@@ -1,0 +1,10 @@
+frog_width=5
+frog_height=2
+car_width=6
+car_height=2
+num_cars=6
+num_friendly_cars=1
+car_speeds=3,5,4,2,2,2
+rows=30
+cols=120
+time_limit=30
